@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package api;
+
+option go_package = "../api";
+message OmzetRequestMessage {
+  string period = 1;
+  string outlet = 2;
+  int64 omzet = 3;
+
+}
+
+message OmzetResultMessage {
+  string responseMessage = 1;
+}
+
+service Omzet {
+  rpc SubmitOmzet(OmzetRequestMessage) returns (OmzetResultMessage){}
+  rpc ClearOmzet(OmzetRequestMessage) returns (OmzetResultMessage){}
+}
